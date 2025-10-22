@@ -1,6 +1,6 @@
-import { CompanyBackground } from "@/components/About/CompanyBackground";
-import { Mission } from "@/components/About/Mission";
-import { TeamProfiles } from "@/components/About/TeamProfiles";
+import { CompanyBackground } from "@/components/modules/About/CompanyBackground";
+import { Mission } from "@/components/modules/About/Mission";
+import { TeamProfiles } from "@/components/modules/About/TeamProfiles";
 
 export default function About() {
   return (
