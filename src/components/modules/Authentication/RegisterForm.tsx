@@ -19,7 +19,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Password from "@/components/ui/Password";
 
 import { toast } from "sonner";
-import { useRegisterMutation } from "@/redux/auth/auth.api";
+import { useRegisterMutation } from "@/redux/features/auth/auth.api";
 
 // ✅ Backend-compatible schema
 const registerSchema = z
@@ -165,7 +165,7 @@ export function RegisterForm({
             />
 
             {/* ✅ Role Selection */}
-            <FormField
+            {/* <FormField
               control={form.control}
               name="role"
               render={({ field }) => (
@@ -183,7 +183,7 @@ export function RegisterForm({
                   <FormMessage />
                 </FormItem>
               )}
-            />
+            /> */}
 
             <Button type="submit" className="w-full">
               Register
