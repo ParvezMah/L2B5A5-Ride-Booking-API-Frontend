@@ -5,7 +5,7 @@ export const rideApi = baseApi.injectEndpoints({
     // Apply as driver
     applyAsDriver: builder.mutation({
       query: (formData: FormData) => ({
-        url: "/drivers/apply-driver",
+        url: "/driver/apply-driver",
         method: "POST",
         data: formData,
       }),
@@ -14,7 +14,7 @@ export const rideApi = baseApi.injectEndpoints({
     // Ride request
     requestRide: builder.mutation({
       query: (rideData) => ({
-        url: "/rides/request",
+        url: "/ride/request",
         method: "POST",
         data: rideData,
       }),
@@ -24,7 +24,7 @@ export const rideApi = baseApi.injectEndpoints({
     // Get my rides
     getMyRides: builder.query({
       query: () => ({
-        url: "/rides/me",
+        url: "/ride/me",
         method: "GET",
       }),
       providesTags: ["RIDE"],
@@ -32,7 +32,7 @@ export const rideApi = baseApi.injectEndpoints({
 
     updateRideStatus: builder.mutation({
       query: ({ rideId, status }) => ({
-        url: `/rides/${rideId}/status`,
+        url: `/ride/${rideId}/status`,
         method: "PATCH",
         data: { status },
       }),
@@ -50,7 +50,7 @@ export const rideApi = baseApi.injectEndpoints({
         minFare,
         maxFare,
       }) => ({
-        url: "/rides/me",
+        url: "/ride/me",
         method: "GET",
         params: { page, limit, status, startDate, endDate, minFare, maxFare },
       }),
@@ -69,7 +69,7 @@ export const rideApi = baseApi.injectEndpoints({
     // Ride API
     getRideDetails: builder.query({
       query: (rideId: string) => ({
-        url: `/rides/${rideId}`,
+        url: `/ride/${rideId}`,
         method: "GET",
       }),
       providesTags: ["RIDE"],
@@ -94,7 +94,7 @@ export const rideApi = baseApi.injectEndpoints({
         page = 1,
         limit = 20,
       }) => ({
-        url: "/rides/oversight",
+        url: "/ride/oversight",
         method: "GET",
         params: {
           rideStatus,

@@ -34,7 +34,7 @@ export const driverApi = baseApi.injectEndpoints({
     // ✅ Get logged-in driver profile
     getDriverProfile: builder.query({
       query: () => ({
-        url: "/drivers/me",
+        url: "/driver/me",
         method: "GET",
       }),
       providesTags: ["DRIVER"],
@@ -43,7 +43,7 @@ export const driverApi = baseApi.injectEndpoints({
      // Update driver profile (PATCH) → MUTATION
     updateDriverProfile: builder.mutation({
       query: (payload: any) => ({
-        url: "/drivers/me",
+        url: "/driver/me",
         method: "PATCH",
         data: payload, 
       }),
@@ -53,7 +53,7 @@ export const driverApi = baseApi.injectEndpoints({
     // ✅ Update online/offline status
     updateOnlineStatus: builder.mutation({
       query: ({ driverId, onlineStatus }) => ({
-        url: `/drivers/online-status/${driverId}`,
+        url: `/driver/online-status/${driverId}`,
         method: "PATCH",
         data: { onlineStatus },
       }),
@@ -62,7 +62,7 @@ export const driverApi = baseApi.injectEndpoints({
     // ✅ Update online/offline status
     updateRidingStatus: builder.mutation({
       query: ({ driverId, ridingStatus }) => ({
-        url: `/drivers/riding-status/${driverId}`,
+        url: `/driver/riding-status/${driverId}`,
         method: "PATCH",
         data: { ridingStatus },
       }),
@@ -72,26 +72,26 @@ export const driverApi = baseApi.injectEndpoints({
     // ✅ Update driver location
     updateLocation: builder.mutation({
       query: ({ driverId, coordinates }: { driverId: string; coordinates: [number, number] }) => ({
-        url: `/drivers/location/${driverId}`,
+        url: `/driver/location/${driverId}`,
         method: "PATCH",
         data: { coordinates },
       }),
       invalidatesTags: ["DRIVER", "RIDE"],
     }),
 
-    // ✅ Accept a ride
+    // ✅ Driver Accept a ride
     acceptRide: builder.mutation({
       query: (rideId) => ({
-        url: `/rides/${rideId}/accept`,
+        url: `/ride/${rideId}/accept`,
         method: "PATCH",
       }),
       invalidatesTags: ["DRIVER", "RIDE"],
     }),
 
-    // ✅ Reject a ride
+    // ✅ Driver Reject a ride
     rejectRide: builder.mutation({
       query: (rideId) => ({
-        url: `/rides/${rideId}/reject`,
+        url: `/ride/${rideId}/reject`,
         method: "PATCH",
       }),
       invalidatesTags: ["DRIVER", "RIDE"],
@@ -100,7 +100,7 @@ export const driverApi = baseApi.injectEndpoints({
     // ✅ Mark pickup complete
     pickUpRide: builder.mutation({
       query: (rideId) => ({
-        url: `/rides/${rideId}/pickup`,
+        url: `/ride/${rideId}/pickup`,
         method: "PATCH",
       }),
       invalidatesTags: ["DRIVER", "RIDE"],
@@ -109,7 +109,7 @@ export const driverApi = baseApi.injectEndpoints({
     // ✅ Mark ride as in transit
     markInTransit: builder.mutation({
       query: (rideId) => ({
-        url: `/rides/${rideId}/transit`,
+        url: `/ride/${rideId}/transit`,
         method: "PATCH",
       }),
       invalidatesTags: ["DRIVER", "RIDE"],
@@ -118,7 +118,7 @@ export const driverApi = baseApi.injectEndpoints({
     // ✅ Complete a ride
     completeRide: builder.mutation({
       query: (rideId) => ({
-        url: `/rides/${rideId}/complete`,
+        url: `/ride/${rideId}/complete`,
         method: "PATCH",
       }),
       invalidatesTags: ["DRIVER", "RIDE"],
@@ -126,7 +126,7 @@ export const driverApi = baseApi.injectEndpoints({
     // ✅ Complete a ride
     cancelRide: builder.mutation({
       query: (rideId) => ({
-        url: `/rides/${rideId}/cancel`,
+        url: `/ride/${rideId}/cancel`,
         method: "PATCH",
       }),
       invalidatesTags: ["DRIVER", "RIDE"],
@@ -135,7 +135,7 @@ export const driverApi = baseApi.injectEndpoints({
       // 🔹 Get Driver Earnings
     getDriverEarnings: builder.query({
       query: () => ({
-        url: "/rides/earnings/me",
+        url: "/ride/earnings/me",
         method: "GET",
       }),
       providesTags: ["EARNINGS"],

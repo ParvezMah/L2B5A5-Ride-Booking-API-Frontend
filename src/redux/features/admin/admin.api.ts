@@ -5,7 +5,7 @@ export const adminApi = baseApi.injectEndpoints({
     // 1️⃣ User Management
     getAllUsers: builder.query({
       query: (params) => ({
-        url: "/users/all-users",
+        url: "/user/all-users",
         method: "GET",
         params,
       }),
@@ -14,7 +14,7 @@ export const adminApi = baseApi.injectEndpoints({
 
     blockUnblockUser: builder.mutation({
       query: ({ id, status }) => ({
-        url: `/users/block/${id}`,
+        url: `/user/block/${id}`,
         method: "PATCH",
         data: { status },
       }),
@@ -22,18 +22,19 @@ export const adminApi = baseApi.injectEndpoints({
     }),
     approveDriver: builder.mutation({
       query: (id: string) => ({
-        url: `/drivers/approve/${id}`,
+        url: `/driver/approve/${id}`,
         method: "PATCH",
       }),
       invalidatesTags: ["ADMIN_DRIVERS"],
     }),
     suspendDriver: builder.mutation({
       query: (id: string) => ({
-        url: `/drivers/suspend/${id}`,
+        url: `/driver/suspend/${id}`,
         method: "PATCH",
       }),
       invalidatesTags: ["ADMIN_DRIVERS"],
     }),
+    // Postman e Kono Route Nai
     getAnalytics: builder.query({
       query: () => ({
         url: "/users/admin",
@@ -50,7 +51,7 @@ export const {
   //   useGetAllDriversQuery,
   useApproveDriverMutation,
   useSuspendDriverMutation,
-  useGetAnalyticsQuery,
+  useGetAnalyticsQuery, // Postman e Kono Route Nai
   //   useGetAllRidesQuery,
   //   useUpdateRideStatusMutation,
   //   useGetAnalyticsQuery,

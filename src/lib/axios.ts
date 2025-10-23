@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig } from "axios";
 
 export const axiosInstance = axios.create({
   baseURL: config.baseUrl,
-  withCredentials: true,
+  withCredentials: true, // frontend can accept cookies
 });
 
 // Add a request interceptor

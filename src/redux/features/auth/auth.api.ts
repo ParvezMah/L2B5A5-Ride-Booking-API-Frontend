@@ -25,13 +25,15 @@ export const authApi = baseApi.injectEndpoints({
         data: userInfo,
       }),
     }),
-    sendOtp: builder.mutation<IResponse<null>, ISendOtp>({
+    // Postman e Route Kora nai
+    sendOtp: builder.mutation<IResponse<null>, ISendOtp>({ 
       query: (userInfo) => ({
         url: "/otp/send",
         method: "POST",
         data: userInfo,
       }),
     }),
+    // Postman e Route Kora nai
     verifyOtp: builder.mutation<IResponse<null>, IVerifyOtp>({
       query: (userInfo) => ({
         url: "/otp/verify",
@@ -42,7 +44,7 @@ export const authApi = baseApi.injectEndpoints({
 
     userInfo: builder.query({
       query: () => ({
-        url: "/users/me",
+        url: "/user/me",
         method: "GET",
       }),
       providesTags: ["RIDER", "DRIVER"],
@@ -53,8 +55,8 @@ export const authApi = baseApi.injectEndpoints({
 export const {
   useRegisterMutation,
   useLoginMutation,
-  useSendOtpMutation,
-  useVerifyOtpMutation,
+  useSendOtpMutation, // Postman e Route Kora nai
+  useVerifyOtpMutation, // Postman e Route Kora nai
   useUserInfoQuery,
   useLogoutMutation,
 } = authApi;
